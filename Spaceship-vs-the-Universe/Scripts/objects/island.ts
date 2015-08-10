@@ -1,12 +1,11 @@
-﻿/// Vineet Dhammi | 300808585 | Last Modified: 20/03/2015 
-
+﻿
 module objects {
     // ISLAND CLASS
-    export class extralife extends objects.GameObject {
-
+    export class Island extends objects.GameObject {
+        
         // CONSTRUCTOR
         constructor() {
-            super("powerPlanet");
+            super("island");
             this.sound = "yay";
             this._dx = 5;
 
@@ -34,7 +33,7 @@ module objects {
         // PRIVATE METHODS +++++++++++++++++++++++++++++++++++++++++
         private _checkBounds() {
             // check if island has left the bottom of the screen
-            if (this.x <= (0 - this.width - 5000)) {
+            if (this.x <= (0 - this.width)) {
                 this.reset();
             }
 
@@ -47,4 +46,4 @@ module objects {
 
     }
 
-}  
+} 

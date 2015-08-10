@@ -70,16 +70,17 @@
   <ItemGroup>
     <Content Include="assets\images\enemy.jpg" />
     <Content Include="assets\images\extralife.jpg" />
-    <Content Include="assets\images\Hero.jpg" />
+    <Content Include="assets\images\plane.jpg" />
     <Content Include="assets\images\points.jpg" />
     <Content Include="assets\images\space.jpg" />
-    <Content Include="css\main.css" />
+    <Content Include="css\game.css" />
     <Content Include="index.html" />
     <Content Include="Scripts\lib\easeljs-0.8.0.min.js" />
     <Content Include="Scripts\lib\preloadjs-0.6.0.min.js" />
     <Content Include="Scripts\lib\soundjs-0.6.0.min.js" />
     <Content Include="Scripts\lib\Stats.js" />
     <Content Include="Scripts\lib\tweenjs-0.6.0.min.js" />
+    <None Include="Scripts\_references.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -90,12 +91,39 @@
     <Folder Include="assets\font\" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="game.ts" />
-    <TypeScriptCompile Include="Scripts\objects\enemy.ts" />
+    <TypeScriptCompile Include="Scripts\constants.ts" />
+    <TypeScriptCompile Include="Scripts\controls.ts" />
+    <TypeScriptCompile Include="Scripts\game.ts" />
+    <TypeScriptCompile Include="Scripts\keys.ts" />
+    <TypeScriptCompile Include="Scripts\objects\button.ts" />
+    <TypeScriptCompile Include="Scripts\objects\cloud.ts" />
+    <TypeScriptCompile Include="Scripts\objects\enamyBoss.ts" />
+    <TypeScriptCompile Include="Scripts\objects\enemyPlane1.ts" />
+    <TypeScriptCompile Include="Scripts\objects\enemyRocket.ts" />
+    <TypeScriptCompile Include="Scripts\objects\enemyPlane2.ts" />
+    <TypeScriptCompile Include="Scripts\objects\explosion.ts" />
     <TypeScriptCompile Include="Scripts\objects\extralife.ts" />
-    <TypeScriptCompile Include="Scripts\objects\Hero.ts" />
+    <TypeScriptCompile Include="Scripts\objects\gameobjects.ts" />
+    <TypeScriptCompile Include="Scripts\objects\island.ts" />
+    <TypeScriptCompile Include="Scripts\objects\lable.ts" />
+    <TypeScriptCompile Include="Scripts\objects\Plane.ts" />
     <TypeScriptCompile Include="Scripts\objects\points.ts" />
+    <TypeScriptCompile Include="Scripts\objects\rocket.ts" />
+    <TypeScriptCompile Include="Scripts\objects\scoreboard.ts" />
+    <TypeScriptCompile Include="Scripts\objects\shield.ts" />
     <TypeScriptCompile Include="Scripts\objects\space.ts" />
+    <TypeScriptCompile Include="Scripts\objects\stage1.ts" />
+    <TypeScriptCompile Include="Scripts\objects\stage2.ts" />
+    <TypeScriptCompile Include="Scripts\objects\stage3.ts" />
+    <TypeScriptCompile Include="Scripts\stages\gameover.ts" />
+    <TypeScriptCompile Include="Scripts\stages\gameplay1.ts" />
+    <TypeScriptCompile Include="Scripts\stages\gamePlay1Over.ts" />
+    <TypeScriptCompile Include="Scripts\stages\gamePlay2.ts" />
+    <TypeScriptCompile Include="Scripts\stages\gamePlay2Over.ts" />
+    <TypeScriptCompile Include="Scripts\stages\gamePlay3.ts" />
+    <TypeScriptCompile Include="Scripts\stages\gamePlay3Over.ts" />
+    <TypeScriptCompile Include="Scripts\stages\instructions.ts" />
+    <TypeScriptCompile Include="Scripts\stages\menu.ts" />
     <TypeScriptCompile Include="Scripts\typings\createjs-lib\createjs-lib.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\easeljs\easeljs.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
@@ -107,7 +135,6 @@
     <TypeScriptCompile Include="Scripts\typings\webaudioapi\waa.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\webrtc\MediaStream.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\webrtc\RTCPeerConnection.d.ts" />
-    <TypeScriptCompile Include="Scripts\utility\utility.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
