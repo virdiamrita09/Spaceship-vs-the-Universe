@@ -59,7 +59,35 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\audio\blast.mp3" />
+    <Content Include="assets\images\enemyBoss.png" />
+    <Content Include="assets\images\enemyPlane1.png" />
+    <Content Include="assets\images\enemyPlane2.png" />
+    <Content Include="assets\images\explosionOriginal.png" />
+    <Content Include="assets\images\ExplosionSpriteSheet.png" />
+    <Content Include="assets\images\gameOver.png" />
+    <Content Include="assets\images\instructionsLogo.png" />
+    <Content Include="assets\images\labelGameOver.png" />
+    <Content Include="assets\images\labelInstructions.png" />
+    <Content Include="assets\images\labelPlayAgain.png" />
+    <Content Include="assets\images\labelPlayGame.png" />
+    <Content Include="assets\images\labelStage1Finished.png" />
+    <Content Include="assets\images\labelStage2.png" />
+    <Content Include="assets\images\labelStage2Finished.png" />
+    <Content Include="assets\images\labelstage3.png" />
+    <Content Include="assets\images\labelYouWin.png" />
+    <Content Include="assets\images\logo.png" />
+    <Content Include="assets\images\playAgainButton.png" />
+    <Content Include="assets\images\playGameButton.png" />
+    <Content Include="assets\images\powership.png" />
+    <Content Include="assets\images\rocket.png" />
+    <Content Include="assets\images\shieldSpriteSheet.png" />
+    <Content Include="assets\images\space.png" />
+    <Content Include="assets\images\spaceship.png" />
+    <Content Include="assets\images\stage1.png" />
     <Content Include="packages.config" />
+    <Content Include="assets\images\.DS_Store" />
+    <Content Include="assets\audio\star.ogg" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -87,7 +115,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="assets\audio\" />
     <Folder Include="assets\font\" />
   </ItemGroup>
   <ItemGroup>
