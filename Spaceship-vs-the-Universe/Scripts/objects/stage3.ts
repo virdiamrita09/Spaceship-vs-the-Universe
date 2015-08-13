@@ -1,4 +1,5 @@
-﻿
+﻿/// Vineet Dhammi | 300808585 | Last Modified: 20/03/2015 
+
 module objects {
     // STAGE3 CLASS
     export class Stage3 extends createjs.Bitmap {

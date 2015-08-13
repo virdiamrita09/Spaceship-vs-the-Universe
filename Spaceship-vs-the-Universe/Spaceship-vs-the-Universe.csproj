@@ -66,6 +66,7 @@
     <Content Include="assets\images\explosionOriginal.png" />
     <Content Include="assets\images\ExplosionSpriteSheet.png" />
     <Content Include="assets\images\gameOver.png" />
+    <Content Include="assets\images\instructions.png" />
     <Content Include="assets\images\instructionsLogo.png" />
     <Content Include="assets\images\labelGameOver.png" />
     <Content Include="assets\images\labelInstructions.png" />
@@ -88,6 +89,7 @@
     <Content Include="packages.config" />
     <Content Include="assets\images\.DS_Store" />
     <Content Include="assets\audio\star.ogg" />
+    <Content Include="assets\font\Transformers Movie.ttf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -114,9 +116,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="assets\font\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\constants.ts" />
     <TypeScriptCompile Include="Scripts\controls.ts" />
