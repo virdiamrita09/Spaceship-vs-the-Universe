@@ -1,13 +1,15 @@
 ﻿ /// Vineet Dhammi | 300808585 | Last Modified: 20/03/2015 
  
 /// <reference path="../constants.ts" />
-/// <reference path="../objects/gameobject.ts" />
+
+/// <reference path="../objects/gameobjects.ts" />
+
 /// <reference path="../objects/island.ts" />
 /// <reference path="../objects/ocean.ts" />
 /// <reference path="../objects/plane.ts" />
 /// <reference path="../objects/cloud.ts" />
 /// <reference path="../objects/scoreboard.ts" />
-/// <reference path="../objects/label.ts" />
+/// <reference path="../objects/lable.ts" />
 
 
 
@@ -25,7 +27,7 @@ module states {
         public island: objects.Island;
         public rocket: objects.Rocket[] = [];
         public enemyRocket: objects.EnemyRocket[] = [];
-        public powerPlanet: objects.PowerPlanet;
+        public extraScore: objects.extraScore;
         public clouds: objects.Cloud[] = [];
         public stage2: objects.Stage2;
         public flagRocket: boolean = false; //used to set delay between 2 rockets
@@ -54,8 +56,8 @@ module states {
 
 
             //power planet object
-            this.powerPlanet = new objects.PowerPlanet();
-            this.game.addChild(this.powerPlanet);
+            this.extraScore = new objects.extraScore();
+            this.game.addChild(this.extraScore);
 
             //Plane object
             this.plane = new objects.Plane();
@@ -138,10 +140,10 @@ module states {
 
                         }
 
-                        if (collider.name == "powerPlanet") {
+                        if (collider.name == "extraScore") {
                             createjs.Sound.play(collider.sound);
                             flagPower = true;
-                            this.powerPlanet.visible = false;
+                            this.extraScore.visible = false;
 
                         }
 
@@ -293,7 +295,7 @@ module states {
                 //alert("y" +this.plane.y);
                 //this.bullet.update(this.plane.x,this.plane.y);
 
-                this.powerPlanet.update();
+                this.extraScore.update();
 
                 if (flagNewPlane)
                     this.plane.updateNewPlane();
@@ -370,7 +372,7 @@ module states {
                 this.checkPlaneCollisionWithEnemyRocket();    
 
                 this.checkCollision(this.island);
-                this.checkCollision(this.powerPlanet);
+                this.checkCollision(this.extraScore);
                 this.checkCollision(this.enemyPlane1);
                 this.checkCollision(this.enemyPlane2);
                 

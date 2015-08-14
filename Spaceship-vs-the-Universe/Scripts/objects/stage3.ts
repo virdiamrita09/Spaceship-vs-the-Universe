@@ -1,19 +1,18 @@
-﻿/// Vineet Dhammi | 300808585 | Last Modified: 20/03/2015 
-
+﻿
 module objects {
-    // STAGE3 CLASS
+    // stage3 class
     export class Stage3 extends createjs.Bitmap {
-        // PUBLIC INSTANCE VARIABLES
+        // public instance variable
         private _dx: number = 5;
 
-        // CONSTRUCTOR
+        // constructor
         constructor() {
             super(assetLoader.getResult("stage3"));
             flagStage2 = false;
             this.reset();
         }
 
-        // PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++
+        // public methods+++++++++++++
         public update() {
 
             if (!flagStage3) //stage 3 not complete
@@ -37,7 +36,6 @@ module objects {
             // check if island has left the bottom of the screen
             
             if (this.x == -8000) {
-                //this.reset();
                 flagStage3 = true;
                 flagBoss = true;
             }

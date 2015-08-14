@@ -1,5 +1,5 @@
 ﻿module objects {
-    // SCOREBOARD CLASS ++++++++++++++++++++++++++++++++++++++++
+    // score board class +++++++++++++++++++++
     export class ScoreBoard {
         public score: number;
         public lives: number;
@@ -7,7 +7,7 @@
         private _scoreLabel: createjs.Text;
         private _livesLabel: createjs.Text;
 
-        // CONSTRUCTOR +++++++++++++++++++++++++++++++++++++++++
+        // constructor +++++++++++++++
         constructor(game: createjs.Container, score: number, lives: number) {
             this.score = score;
             this.lives = lives;
@@ -22,7 +22,7 @@
 
         }
 
-        // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++
+        // public methods ++++++++++++++++++++++++++++
         public update(): void {
             this._livesLabel.text = "Lives: " + this.lives;
             this._scoreLabel.text = "Score: " + this.score;

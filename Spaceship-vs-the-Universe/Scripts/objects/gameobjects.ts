@@ -1,8 +1,8 @@
 ﻿module objects {
-    // GAMEOBJECT CLASS
+    // gameObject Class
     export class GameObject extends createjs.Bitmap {
        
-         // PUBLIC INSTANCE VARIABLES
+         // public instance variables
         public width: number;
         public height: number;
         public isColliding: boolean = false;

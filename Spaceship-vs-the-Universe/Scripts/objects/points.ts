@@ -1,38 +1,66 @@
-﻿module objects {
-    // points Class ++++++++++++++++++++++++++++++++++++++
-    export class points extends objects.GameObject {
-        // constructooooor ++++++++++++++++++++++++++++++++++
-        constructor(imageString: string) {
-            super(imageString);
+﻿
 
-            this.name = "points";
-            this.sound = "yay";
-            this.dy = 5;
+module objects {
+    // Player Class
+    export class hero extends createjs.Bitmap {
+        public width: number;
+        public height: number;
+        public tmpY: number;
+        public timer: number;
+
+
+        // constructor
+        constructor() {
+            super(assetLoader.getResult("hero"));
+
+            this.width = this.getBounds().width;
+            this.height = this.getBounds().height;
+
+            this.regX = this.width * 0.5;
+            this.regY = this.height * 0.5;
+            createjs.Sound.play("engine", { loop: -1 });
 
             this.reset();
         }
 
-        // MY PRIVATE METHODS ++++++++++++++++++++++++++++++
-        private checkBounds(): void {
+        // public method
+        public update(control) {
+            
+            if (constants.MENU_STATE) {
+                this.y = stage.mouseY;
+                this.x = stage.mouseX;
+            } else {
 
-            // check if points are coming from left screen
-            if (this.y > 480 + this.height) {
-                this.reset();
+                if (control.down == true && this.y < 400) {
+                    this.y += 7;
+                } else if (control.up == true && this.y > 30) {
+                    this.y -= 7;
+                } else if (control.left == true && this.x > 50) {
+                    this.x -= 7;
+                } else if (control.right == true && this.x < 600) {
+                    this.x += 7;
+                }
+
+             }
+        }
+
+        public reset() {
+            // reset plane after colliding with enemy
+            this.visible = true;
+            this.x = -100;
+            this.y = Math.floor(Math.random() * 400);
+            flagPower = true;
+            flagNewPlane = true;
+            this.updateNewPlane();
+        }
+
+        public updateNewPlane() {
+            this.x += 5;
+            if (this.x > 100) {
+                flagNewPlane = false;
             }
         }
 
-
-        private reset(): void {
-            this.x = Math.floor(Math.random() * 640); // start points at random location
-            this.y = -this.height; // start points off stage
-        }
-
-
-        // PUBLIC METHODS +++++++++++++++++++++++++++++++
-        public update(): void {
-
-            this.y += this.dy; // moves points down the stage
-            this.checkBounds();
-        }
     }
-} 
+
+}

@@ -1,49 +1,49 @@
 ﻿module objects {
-    // CLOUD CLASS
-    export class enemy extends objects.GameObject {
+    // enemy rocket class
+    export class EnemyRocket extends objects.GameObject {
+        public planeX: number;
+        public planeY: number;
 
-        // CONSTRUCTOR
-        constructor() {
-            super("cloud");
-            this.sound = "blast";
-            this.reset();
+
+        // constructor
+        constructor(enemyPlaneX, enemyPlaneY) {
+            super("enemyRocket");
+            this.sound = "yay";
+            this._dx = 5;
+            this.x = enemyPlaneX + this.width;
+            this.y = enemyPlaneY;
+
         }
 
-        // PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++
+        // PUBLIC METHODS ++++++++++++
         public update() {
-            this.y += this._dy;
-            this.x -= this._dx;
-
-            this._checkBounds();
+            //alert(plane);
+            this.x -= 10;
+            
+            //this.planeX = tmpPlaneX;
+            //this.planeY = tmpPlaneY;
+            //this._checkBounds();
         }
 
         // Reset position of island to the top
         public reset() {
-            /*
-            this.y = -this.height;
-            this.x = Math.floor(Math.random() * 640);
-            this._dy = Math.floor(Math.random() * 5) + 5;
-            this._dx = Math.floor(Math.random() * 4) - 2;
-            */
+            //alert("planeX"+this.planeX);
+            //alert("planeY"+this.planeY);
+            this.visible = false;
+            this.x = this.planeX + this.width;
+            this.y = this.planeY + 35;//Math.floor(Math.random() * 430);
 
-            this.x = 1050;
-            this.y = Math.floor(Math.random() * 400);
-            this._dx = Math.floor(Math.random() * 5) + 5;
-
-            this._dy = Math.floor(Math.random() * 5) - 2;
+            
         }
 
-        // PRIVATE METHODS +++++++++++++++++++++++++++++++++++++++++
+        // PRIVATE METHODS ++++++++++++
         private _checkBounds() {
             // check if island has left the bottom of the screen
-            if (this.x <= (0 - this.width)) {
+            if (this.x >= (1000 + this.width)) {
+
                 this.reset();
             }
-            /*
-            if (this.y >= (480 + this.height)) {
-                this.reset();
-            }
-            */
+
         }
 
     }

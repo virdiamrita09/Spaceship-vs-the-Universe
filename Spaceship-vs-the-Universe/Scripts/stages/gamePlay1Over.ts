@@ -1,17 +1,19 @@
 ﻿
 /// <reference path="../constants.ts" />
-/// <reference path="../objects/gameobject.ts" />
+
+/// <reference path="../objects/gameobjects.ts" />
+
 /// <reference path="../objects/island.ts" />
 /// <reference path="../objects/ocean.ts" />
 /// <reference path="../objects/plane.ts" />
 /// <reference path="../objects/cloud.ts" />
 /// <reference path="../objects/button.ts" />
-/// <reference path="../objects/label.ts" />
+/// <reference path="../objects/lable.ts" />
 
 /// <reference path="../objects/scoreboard.ts" />
 
 module states {
-    // GAME OVER STATE CLASS
+    // game over state class
     export class GamePlay1Over {
         // Game Objects 
         public game: createjs.Container;

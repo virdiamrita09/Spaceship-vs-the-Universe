@@ -1,5 +1,5 @@
 ﻿module objects {
-    // ROCKET CLASS
+    // rocket class
     export class Rocket extends objects.GameObject {
         public planeX: number;
         public planeY: number;
@@ -10,11 +10,10 @@
             this._dx = 5;
             this.x = planeX + this.width;
             this.y = planeY;
-            //this.reset();
 
         }
 
-        // PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++
+        // PUBLIC METHODS ++++++++++++
         public update() {
                 if (flagStage3)
                 this._dx = 10;
@@ -27,7 +26,7 @@
 
             this.visible = false;
             this.x = this.planeX + this.width;
-            this.y = this.planeY + 35;//Math.floor(Math.random() * 430);
+            this.y = this.planeY + 15;//Math.floor(Math.random() * 430);
 
                   }
 

@@ -1,21 +1,20 @@
 ﻿
 module objects {
-    // STAGE2 CLASS
+    // stage 2
     export class Stage2 extends createjs.Bitmap {
-        // PUBLIC INSTANCE VARIABLES
+        // public instance variable
         private _dx: number = 5;
 
-        // CONSTRUCTOR
+        // constructor
         constructor() {
             super(assetLoader.getResult("stage2"));
             flagStage2 = false;
             this.reset();
         }
 
-        // PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++
+        // public method +++++++++++++
         public update() {
             this.x -= this._dx;
-
             this._checkBounds();
         }
 

@@ -1,10 +1,11 @@
 ﻿
 module objects {
-    // ENEMY BOSS PLANE CLASS
+    // enemy boss plane Class
+
     export class EnemyBoss extends objects.GameObject {
         public yFlag: boolean;
 
-        // CONSTRUCTOR
+        // constructor
         constructor() {
             super("enemyBoss");
             this.sound = "blast";
@@ -12,8 +13,8 @@ module objects {
             this.reset();
         }
 
-        // PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++
-        public update() {
+        // PUBLIC METHODS +++++++++
+            public update() {
             this.visible = true;
             if (this.yFlag) {
                 this.y += 3;
@@ -28,14 +29,9 @@ module objects {
             if (this.x > 800)
                 this.x -= 5;
 
-            //this._checkBounds();
-            //this.y += this._dy;
-            //this.x -= this._dx;
 
-            //this._checkBounds();
         }
 
-        // Reset position of island to the top
         public reset() {
 
             this.x = 1250;
@@ -46,17 +42,13 @@ module objects {
             this.visible = false;
         }
 
-        // PRIVATE METHODS +++++++++++++++++++++++++++++++++++++++++
+        // PRIVATE METHODS +++++++++++
         private _checkBounds() {
             // check if island has left the bottom of the screen
             if (this.x <= (0 - this.width)) {
                 this.reset();
             }
-            /*
-            if (this.y >= (480 + this.height)) {
-                this.reset();
-            }
-            */
+            
         }
 
     }

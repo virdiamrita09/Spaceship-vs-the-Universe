@@ -7,18 +7,20 @@
 /// <reference path="typings/stats/stats.d.ts" />
 
 /// <reference path="constants.ts" />
-/// <reference path="objects/gameobject.ts" />
+/// <reference path="objects/gameobjects.ts" />
 /// <reference path="objects/scoreboard.ts" />
 /// <reference path="objects/plane.ts" />
 /// <reference path="objects/island.ts" />
 /// <reference path="objects/cloud.ts" />
 /// <reference path="objects/ocean.ts" />
 /// <reference path="objects/button.ts" />
-/// <reference path="objects/label.ts" />
+/// <reference path="objects/lable.ts" />
 
-/// <reference path="states/gameplay1.ts" />
-/// <reference path="states/gameover.ts" />
-/// <reference path="states/menu.ts" />
+/// <reference path="stages/gameplay1.ts" />
+/// <reference path="stages/gameover.ts" />
+/// <reference path="stages/menu.ts" />
+
+
 
 
 // Global game Variables
@@ -86,7 +88,7 @@ var manifest = [
 
 function Preload() {
     assetLoader = new createjs.LoadQueue(); // create a new preloader
-    assetLoader.installPlugin(createjs.Sound); // need plugin for sounds
+   // assetLoader.installPlugin(createjs.Sound); // need plugin for sounds
     assetLoader.on("complete", init, this); // when assets finished preloading - then init function
 
     assetLoader.loadManifest(manifest);

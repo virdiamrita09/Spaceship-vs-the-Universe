@@ -1,11 +1,12 @@
 ﻿ /// <reference path="../constants.ts" />
-/// <reference path="../objects/gameobject.ts" />
+
+/// <reference path="../objects/gameobjects.ts" />
+
 /// <reference path="../objects/island.ts" />
 /// <reference path="../objects/ocean.ts" />
 /// <reference path="../objects/plane.ts" />
 /// <reference path="../objects/cloud.ts" />
 /// <reference path="../objects/scoreboard.ts" />
-/// <reference path="../objects/label.ts" />
 
 
 
@@ -20,7 +21,7 @@ module states {
         public plane: objects.Plane;
         public island: objects.Island;
         //public bullet: objects.Bullet[] = [];
-        public powerPlanet: objects.PowerPlanet;
+        public extraScore: objects.extraScore;
         public clouds: objects.Cloud[] = [];
         public stage1: objects.Stage1;
         public flagBullet: boolean = false;
@@ -30,9 +31,7 @@ module states {
         public explosions: Explosion[] = [];
         public explosionImg: HTMLImageElement;
 
-        //public shield: Shield;
-        //public shieldImg: HTMLImageElement;
-
+      
         constructor() {
             // Instantiate Game Container
             this.game = new createjs.Container();
@@ -49,27 +48,15 @@ module states {
             this.game.addChild(this.island);
 
 
-            //power planet object
-            this.powerPlanet = new objects.PowerPlanet();
-            this.game.addChild(this.powerPlanet);
+            //extraScore object
+            this.extraScore = new objects.extraScore();
+            this.game.addChild(this.extraScore);
 
             //Plane object
             this.plane = new objects.Plane();
             this.game.addChild(this.plane);
 
-            //this.shield = new Shield(this.shieldImg);
-            //this.shield.x = this.plane.x;
-            //this.shield.y = this.plane.y;
-            //alert(this.shield.x);
-            //this.game.addChild(this.shield);
-
-            /*
-            //Bullet object
-            this.bullet = new objects.Bullet();
-            this.game.addChild(this.bullet);
-            this.bullet.visible = false;
-            */
-
+          
             //Cloud object
             for (var cloud = 2; cloud >= 0; cloud--) {
                 this.clouds[cloud] = new objects.Cloud();
@@ -132,11 +119,11 @@ module states {
 
                         }
 
-                        if (collider.name == "powerPlanet") {
+                        if (collider.name == "extraScore") {
                             //this.scoreboard.lives++;
                             createjs.Sound.play(collider.sound);
                             flagPower = true;
-                            this.powerPlanet.visible = false;
+                            this.extraScore.visible = false;
 
                         }
                     }
@@ -181,7 +168,7 @@ module states {
             //alert("y" +this.plane.y);
             //this.bullet.update(this.plane.x,this.plane.y);
 
-            this.powerPlanet.update();
+            this.extraScore.update();
 
             if (flagNewPlane)
                 this.plane.updateNewPlane();
@@ -209,7 +196,7 @@ module states {
             //}
 
             this.checkCollision(this.island);
-            this.checkCollision(this.powerPlanet);
+            this.checkCollision(this.extraScore);
 
 
             this.scoreboard.update();

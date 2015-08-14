@@ -1,11 +1,11 @@
 ﻿
 module objects {
-    // ENEMY PLANE 2 CLASS
+    // enemy plane 2 class
     export class EnemyPlane2 extends objects.GameObject {
 
         public yFlag: boolean;
 
-        // CONSTRUCTOR
+        // constructor
         constructor() {
             super("enemyPlane2");
             this.sound = "blast";
@@ -13,9 +13,8 @@ module objects {
             this.yFlag = false;
         }
 
-        // PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++
+        // PUBLIC METHODS +++++++
         public update() {
-            //console.log(this.y);
             if (this.yFlag) {
                 this.y += 3;
             } else {
@@ -31,14 +30,9 @@ module objects {
             this._checkBounds();
         }
 
-        // Reset position of island to the top
+        // Reset the position of island to the top
         public reset() {
-            /*
-            this.y = -this.height;
-            this.x = Math.floor(Math.random() * 640);
-            this._dy = Math.floor(Math.random() * 5) + 5;
-            this._dx = Math.floor(Math.random() * 4) - 2;
-            */
+            
             this.visible = true;
             this.x = 1050;
             this.y = Math.floor(Math.random() * 400);
@@ -47,17 +41,13 @@ module objects {
             this._dy = Math.floor(Math.random() * 5) - 2;
         }
 
-        // PRIVATE METHODS +++++++++++++++++++++++++++++++++++++++++
+        // PRIVATE METHODS +++++++
         private _checkBounds() {
             // check if island has left the bottom of the screen
             if (this.x <= (0 - this.width)) {
                 this.reset();
             }
-            /*
-            if (this.y >= (480 + this.height)) {
-                this.reset();
-            }
-            */
+
         }
 
     }

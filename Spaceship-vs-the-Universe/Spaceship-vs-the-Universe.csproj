@@ -60,12 +60,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\audio\blast.mp3" />
+    <Content Include="assets\images\asteroids.png" />
     <Content Include="assets\images\enemyBoss.png" />
     <Content Include="assets\images\enemyPlane1.png" />
     <Content Include="assets\images\enemyPlane2.png" />
+    <Content Include="assets\images\enemyRocket.png" />
     <Content Include="assets\images\explosionOriginal.png" />
     <Content Include="assets\images\ExplosionSpriteSheet.png" />
     <Content Include="assets\images\gameOver.png" />
+    <Content Include="assets\images\Hero.png" />
     <Content Include="assets\images\instructions.png" />
     <Content Include="assets\images\instructionsLogo.png" />
     <Content Include="assets\images\labelGameOver.png" />
@@ -78,9 +81,10 @@
     <Content Include="assets\images\labelstage3.png" />
     <Content Include="assets\images\labelYouWin.png" />
     <Content Include="assets\images\logo.png" />
+    <Content Include="assets\images\planet.png" />
     <Content Include="assets\images\playAgainButton.png" />
     <Content Include="assets\images\playGameButton.png" />
-    <Content Include="assets\images\powership.png" />
+    <Content Include="assets\images\points.png" />
     <Content Include="assets\images\rocket.png" />
     <Content Include="assets\images\shieldSpriteSheet.png" />
     <Content Include="assets\images\space.png" />
@@ -100,9 +104,6 @@
   <ItemGroup>
     <Content Include="assets\images\enemy.jpg" />
     <Content Include="assets\images\extralife.jpg" />
-    <Content Include="assets\images\plane.jpg" />
-    <Content Include="assets\images\points.jpg" />
-    <Content Include="assets\images\space.jpg" />
     <Content Include="css\game.css" />
     <Content Include="index.html" />
     <Content Include="Scripts\lib\easeljs-0.8.0.min.js" />
@@ -129,16 +130,16 @@
     <TypeScriptCompile Include="Scripts\objects\enemyRocket.ts" />
     <TypeScriptCompile Include="Scripts\objects\enemyPlane2.ts" />
     <TypeScriptCompile Include="Scripts\objects\explosion.ts" />
-    <TypeScriptCompile Include="Scripts\objects\extralife.ts" />
+    <TypeScriptCompile Include="Scripts\objects\extraScore.ts" />
     <TypeScriptCompile Include="Scripts\objects\gameobjects.ts" />
     <TypeScriptCompile Include="Scripts\objects\island.ts" />
     <TypeScriptCompile Include="Scripts\objects\lable.ts" />
+    <TypeScriptCompile Include="Scripts\objects\ocean.ts" />
     <TypeScriptCompile Include="Scripts\objects\Plane.ts" />
     <TypeScriptCompile Include="Scripts\objects\points.ts" />
     <TypeScriptCompile Include="Scripts\objects\rocket.ts" />
     <TypeScriptCompile Include="Scripts\objects\scoreboard.ts" />
     <TypeScriptCompile Include="Scripts\objects\shield.ts" />
-    <TypeScriptCompile Include="Scripts\objects\space.ts" />
     <TypeScriptCompile Include="Scripts\objects\stage1.ts" />
     <TypeScriptCompile Include="Scripts\objects\stage2.ts" />
     <TypeScriptCompile Include="Scripts\objects\stage3.ts" />

@@ -1,6 +1,6 @@
 ﻿
 module objects {
-    // ENEMY PLANE CLASS
+    // enemy plane class
     export class EnemyPlane1 extends objects.GameObject {
 
         // CONSTRUCTOR
@@ -18,14 +18,8 @@ module objects {
             this._checkBounds();
         }
 
-        // Reset position of island to the top
+        // Reset the position of island to the top
         public reset() {
-            /*
-            this.y = -this.height;
-            this.x = Math.floor(Math.random() * 640);
-            this._dy = Math.floor(Math.random() * 5) + 5;
-            this._dx = Math.floor(Math.random() * 4) - 2;
-            */
             this.visible = true;
             this.x = 1050;
             this.y = Math.floor(Math.random() * 400);
@@ -34,17 +28,13 @@ module objects {
             this._dy = Math.floor(Math.random() * 5) - 2;
         }
 
-        // PRIVATE METHODS +++++++++++++++++++++++++++++++++++++++++
+        // PRIVATE METHODS ++++++++
         private _checkBounds() {
             // check if island has left the bottom of the screen
             if (this.x <= (0 - this.width)) {
                 this.reset();
             }
-            /*
-            if (this.y >= (480 + this.height)) {
-                this.reset();
-            }
-            */
+            
         }
 
     }

@@ -1,9 +1,9 @@
 ﻿
 module objects {
-    // ISLAND CLASS
+    // island class/ score
     export class Island extends objects.GameObject {
         
-        // CONSTRUCTOR
+        // constructor
         constructor() {
             super("island");
             this.sound = "yay";
@@ -12,22 +12,19 @@ module objects {
             this.reset();
         }
 
-        // PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++
+        // PUBLIC METHODS ++++++++++++++
         public update() {
             this.x -= this._dx;
 
             this._checkBounds();
         }
 
-        // Reset position of island to the top
+        // Reset the position of island to the top
         public reset() {
             this.visible = true;
             this.x = 1000 + this.width;
             this.y = Math.floor(Math.random() * 430);
-            /*
-            this.y = -this.height;
-            this.x = Math.floor(Math.random() * 640);
-            */
+
         }
 
         // PRIVATE METHODS +++++++++++++++++++++++++++++++++++++++++
@@ -37,11 +34,6 @@ module objects {
                 this.reset();
             }
 
-            /*
-            if (this.y >= (480 + this.height)) {
-                this.reset();
-            }
-            */
         }
 
     }
