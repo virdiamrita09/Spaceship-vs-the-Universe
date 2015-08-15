@@ -60,6 +60,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\audio\blast.mp3" />
+    <Content Include="assets\audio\collision.wav" />
+    <Content Include="assets\audio\powerup.wav" />
     <Content Include="assets\images\asteroids.png" />
     <Content Include="assets\images\enemyBoss.png" />
     <Content Include="assets\images\enemyPlane1.png" />
@@ -68,7 +70,7 @@
     <Content Include="assets\images\explosionOriginal.png" />
     <Content Include="assets\images\ExplosionSpriteSheet.png" />
     <Content Include="assets\images\gameOver.png" />
-    <Content Include="assets\images\Hero.png" />
+    <Content Include="assets\images\hero.png" />
     <Content Include="assets\images\instructions.png" />
     <Content Include="assets\images\instructionsLogo.png" />
     <Content Include="assets\images\labelGameOver.png" />
@@ -90,6 +92,7 @@
     <Content Include="assets\images\space.png" />
     <Content Include="assets\images\spaceship.png" />
     <Content Include="assets\images\stage1.png" />
+    <Content Include="css\github-light.css" />
     <Content Include="packages.config" />
     <Content Include="assets\images\.DS_Store" />
     <Content Include="assets\audio\star.ogg" />
@@ -125,17 +128,17 @@
     <TypeScriptCompile Include="Scripts\keys.ts" />
     <TypeScriptCompile Include="Scripts\objects\button.ts" />
     <TypeScriptCompile Include="Scripts\objects\cloud.ts" />
-    <TypeScriptCompile Include="Scripts\objects\enamyBoss.ts" />
+    <TypeScriptCompile Include="Scripts\objects\enemyBoss.ts" />
     <TypeScriptCompile Include="Scripts\objects\enemyPlane1.ts" />
     <TypeScriptCompile Include="Scripts\objects\enemyRocket.ts" />
     <TypeScriptCompile Include="Scripts\objects\enemyPlane2.ts" />
     <TypeScriptCompile Include="Scripts\objects\explosion.ts" />
     <TypeScriptCompile Include="Scripts\objects\extraScore.ts" />
-    <TypeScriptCompile Include="Scripts\objects\gameobjects.ts" />
+    <TypeScriptCompile Include="Scripts\objects\gameobject.ts" />
     <TypeScriptCompile Include="Scripts\objects\island.ts" />
     <TypeScriptCompile Include="Scripts\objects\lable.ts" />
     <TypeScriptCompile Include="Scripts\objects\ocean.ts" />
-    <TypeScriptCompile Include="Scripts\objects\Plane.ts" />
+    <TypeScriptCompile Include="Scripts\objects\hero.ts" />
     <TypeScriptCompile Include="Scripts\objects\points.ts" />
     <TypeScriptCompile Include="Scripts\objects\rocket.ts" />
     <TypeScriptCompile Include="Scripts\objects\scoreboard.ts" />
@@ -154,11 +157,9 @@
     <TypeScriptCompile Include="Scripts\stages\menu.ts" />
     <TypeScriptCompile Include="Scripts\typings\createjs-lib\createjs-lib.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\easeljs\easeljs.d.ts" />
-    <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\preloadjs\preloadjs.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\soundjs\soundjs.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\stats\stats.d.ts" />
-    <TypeScriptCompile Include="Scripts\typings\tween.js\tween.js.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\tweenjs\tweenjs.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\webaudioapi\waa.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\webrtc\MediaStream.d.ts" />

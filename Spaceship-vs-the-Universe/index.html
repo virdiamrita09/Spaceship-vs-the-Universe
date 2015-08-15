@@ -9,11 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Space-vs-the-Universe</title>
     <!-- CSS Section -->
-    <link href="css/main.css" rel="stylesheet" />
+    <link href="css/game.css" rel="stylesheet" />
+    <!--<link href="css/github-light.css" rel="stylesheet" />-->
 </head>
-<body onload="preload();">
+<body onload="Preload();">
     <!--Game Container-->
-    <canvas id="canvas" width="640" height="480"></canvas>
+    <canvas id="canvas" width="1000" height="480"></canvas>
     <!--JavaScript Section-->
     <script src="Scripts/lib/Stats.js"></script>
     <script src="Scripts/lib/easeljs-0.8.0.min.js"></script>
@@ -22,7 +23,7 @@
     <script src="Scripts/lib/preloadjs-0.6.0.min.js"></script>
 
     <!--Game Objects-->
-    <script src="Scripts/utility/utility.js"></script>
+    <!--<script src="Scripts/utility/utility.js"></script>-->
 
     <script src="Scripts/objects/enemy.js"></script>
     <script src="Scripts/objects/extralife.js"></script>
@@ -52,15 +53,15 @@
     <script src="Scripts/objects/label.js"></script>
     <script src="Scripts/objects/extraScore.js"></script>
 
-    <script src="Scripts/states/gameplay1.js"></script>
-    <script src="Scripts/states/gameover.js"></script>
-    <script src="Scripts/states/gamePlay1Over.js"></script>
-    <script src="Scripts/states/gamePlay2.js"></script>
-    <script src="Scripts/states/gamePlay2Over.js"></script>
-    <script src="Scripts/states/gamePlay3.js"></script>
-    <script src="Scripts/states/gamePlay3Over.js"></script>
-    <script src="Scripts/states/menu.js"></script>
-    <script src="Scripts/states/instructions.js"></script>
+    <script src="Scripts/stages/gameplay1.js"></script>
+    <script src="Scripts/stages/gameover.js"></script>
+    <script src="Scripts/stages/gamePlay1Over.js"></script>
+    <script src="Scripts/stages/gamePlay2.js"></script>
+    <script src="Scripts/stages/gamePlay2Over.js"></script>
+    <script src="Scripts/stages/gamePlay3.js"></script>
+    <script src="Scripts/stages/gamePlay3Over.js"></script>
+    <script src="Scripts/stages/menu.js"></script>
+    <script src="Scripts/stages/instructions.js"></script>
     <script src="Scripts/controls.js"></script>
     <script src="Scripts/keys.js"></script>
     <script src="Scripts/game.js"></script>

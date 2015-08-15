@@ -1,10 +1,10 @@
 ﻿ /// <reference path="../constants.ts" />
 
-/// <reference path="../objects/gameobjects.ts" />
+/// <reference path="../objects/gameobject.ts" />
 
 /// <reference path="../objects/island.ts" />
 /// <reference path="../objects/ocean.ts" />
-/// <reference path="../objects/plane.ts" />
+/// <reference path="../objects/Hero.ts" />
 /// <reference path="../objects/cloud.ts" />
 /// <reference path="../objects/scoreboard.ts" />
 
@@ -18,7 +18,7 @@ module states {
         // Game Objects 
         public game: createjs.Container;
         public scoreboard: objects.ScoreBoard;
-        public plane: objects.Plane;
+        public hero: objects.Hero;
         public island: objects.Island;
         //public bullet: objects.Bullet[] = [];
         public extraScore: objects.extraScore;
@@ -52,9 +52,9 @@ module states {
             this.extraScore = new objects.extraScore();
             this.game.addChild(this.extraScore);
 
-            //Plane object
-            this.plane = new objects.Plane();
-            this.game.addChild(this.plane);
+            //Hero object
+            this.hero = new objects.Hero();
+            this.game.addChild(this.hero);
 
           
             //Cloud object
@@ -84,11 +84,11 @@ module states {
         // CHECK COLLISION METHOD
         public checkCollision(collider: objects.GameObject) {
             if (this.scoreboard.active) {
-                var planePosition: createjs.Point = new createjs.Point(this.plane.x, this.plane.y);
+                var planePosition: createjs.Point = new createjs.Point(this.hero.x, this.hero.y);
 
                 var objectPosition: createjs.Point = new createjs.Point(collider.x, collider.y);
                 var theDistance = this.distance(planePosition, objectPosition);
-                if (theDistance < ((this.plane.height * 0.5) + (collider.height * 0.5))) {
+                if (theDistance < ((this.hero.height * 0.5) + (collider.height * 0.5))) {
                     if (collider.isColliding != true) {
 
                         if (collider.name == "cloud") {
@@ -102,9 +102,9 @@ module states {
                                 //alert("");
                                 
                                 var explosion = new Explosion(this.explosionImg);
-                                explosion.x = this.plane.x;
-                                explosion.y = this.plane.y;
-                                this.plane.reset();
+                                explosion.x = this.hero.x;
+                                explosion.y = this.hero.y;
+                                this.hero.reset();
      
                                 //alert(explosion.x);
                                 this.explosions.push(explosion);
@@ -170,10 +170,10 @@ module states {
 
             this.extraScore.update();
 
-            if (flagNewPlane)
-                this.plane.updateNewPlane();
+            if (flagNewHero)
+                this.hero.updateNewHero();
             else
-                this.plane.update(controls);
+                this.hero.update(controls);
             
             //this.shield.x = this.plane.x;
             //this.shield.y = this.plane.y;

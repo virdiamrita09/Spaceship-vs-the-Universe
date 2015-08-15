@@ -26,7 +26,7 @@ module objects {
                 this.yFlag = true;
             if (this.y > 300)
                 this.yFlag = false;
-            if (this.x > 800)
+            if (this.x>800)
                 this.x -= 5;
 
 

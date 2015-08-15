@@ -7,9 +7,9 @@
 /// <reference path="typings/stats/stats.d.ts" />
 
 /// <reference path="constants.ts" />
-/// <reference path="objects/gameobjects.ts" />
+/// <reference path="objects/gameobject.ts" />
 /// <reference path="objects/scoreboard.ts" />
-/// <reference path="objects/plane.ts" />
+/// <reference path="objects/Hero.ts" />
 /// <reference path="objects/island.ts" />
 /// <reference path="objects/cloud.ts" />
 /// <reference path="objects/ocean.ts" />
@@ -35,7 +35,7 @@ var gamePlay1Loop = 5;
 var flagStage1 = false;
 var flagStage2 = false;
 var flagStage3 = false;
-var flagNewPlane = true;
+var flagNewHero = true;
 var flagPower = true;
 var flagBoss = false;
 
@@ -69,12 +69,12 @@ var manifest = [
     { id: "stage1", src: "assets/images/stage1.png" },
     { id: "stage2", src: "assets/images/stage1.png" },
     { id: "stage3", src: "assets/images/stage1.png" },
-    { id: "plane", src: "assets/images/playership.png" },
+    { id: "hero", src: "assets/images/hero.png" },
     { id: "playButton", src: "assets/images/labelPlayGame.png" },
     { id: "tryAgainButton", src: "assets/images/labelPlayAgain.png" },
     { id: "instructionsLogo", src: "assets/images/labelInstructions.png" },
     { id: "instruction", src: "assets/images/instructions.png" },
-    { id: "powership", src: "assets/images/powership.png" },
+    { id: "extraScore", src: "assets/images/extralife.png" },
     { id: "powerPlanet", src: "assets/images/powerPlanet.png" },
     { id: "labelStage2Start", src: "assets/images/labelStage2.png" },
     { id: "labelStage3Start", src: "assets/images/labelStage3.png" },

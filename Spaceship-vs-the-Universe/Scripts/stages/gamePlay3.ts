@@ -1,10 +1,10 @@
 ﻿ 
 /// <reference path="../constants.ts" />
-/// <reference path="../objects/gameobjects.ts" />
+/// <reference path="../objects/gameobject.ts" />
 
 /// <reference path="../objects/island.ts" />
 /// <reference path="../objects/ocean.ts" />
-/// <reference path="../objects/plane.ts" />
+/// <reference path="../objects/Hero.ts" />
 /// <reference path="../objects/cloud.ts" />
 /// <reference path="../objects/scoreboard.ts" />
 /// <reference path="../objects/lable.ts" />
@@ -19,14 +19,14 @@ module states {
         // Game Objects 
         public game: createjs.Container;
         public scoreboard: objects.ScoreBoard;
-        public plane: objects.Plane;
+        public hero: objects.Hero;
         public enemyPlane1: objects.EnemyPlane1;
         public enemyPlane2: objects.EnemyPlane2;
         public enemyBoss: objects.EnemyBoss;
         public island: objects.Island;
         public rocket: objects.Rocket[] = [];
         public enemyRocket: objects.EnemyRocket[] = [];
-        public extraScore: objects.extraScore;
+        public extraScore: objects.ExtraScore;
         public clouds: objects.Cloud[] = [];
         public stage3: objects.Stage3;
         public flagRocket: boolean = false; //used to set delay between 2 rockets
@@ -55,12 +55,12 @@ module states {
 
 
             //extraScore object
-            this.extraScore = new objects.extraScore();
+            this.extraScore = new objects.ExtraScore();
             this.game.addChild(this.extraScore);
 
-            //Plane object
-            this.plane = new objects.Plane();
-            this.game.addChild(this.plane);
+            //Hero object
+            this.hero = new objects.Hero();
+            this.game.addChild(this.hero);
 
             //Cloud object
             for (var cloud = 2; cloud >= 0; cloud--) {
@@ -99,11 +99,11 @@ module states {
         public checkCollision(collider: objects.GameObject) {
 
             if (this.scoreboard.active) {
-                var planePosition: createjs.Point = new createjs.Point(this.plane.x, this.plane.y);
+                var planePosition: createjs.Point = new createjs.Point(this.hero.x, this.hero.y);
 
                 var objectPosition: createjs.Point = new createjs.Point(collider.x, collider.y);
                 var theDistance = this.distance(planePosition, objectPosition);
-                if (theDistance < ((this.plane.height * 0.5) + (collider.height * 0.5))) {
+                if (theDistance < ((this.hero.height * 0.5) + (collider.height * 0.5))) {
                     if (collider.isColliding != true) {
 
 
@@ -118,9 +118,9 @@ module states {
                                 //alert("");
                                 
                                 var explosion = new Explosion(this.explosionImg);
-                                explosion.x = this.plane.x;
-                                explosion.y = this.plane.y;
-                                this.plane.reset();
+                                explosion.x = this.hero.x;
+                                explosion.y = this.hero.y;
+                                this.hero.reset();
      
                                 //alert(explosion.x);
                                 this.explosions.push(explosion);
@@ -136,7 +136,7 @@ module states {
 
                         }
 
-                        if (collider.name == "powerPlanet") {
+                        if (collider.name == "extraScore") {
                             createjs.Sound.play(collider.sound);
                             flagPower = true;
                             this.extraScore.visible = false;
@@ -152,10 +152,10 @@ module states {
                             
                                 this.scoreboard.lives--;
                                 var explosion = new Explosion(this.explosionImg);
-                                explosion.x = this.plane.x;
-                                explosion.y = this.plane.y;
+                                explosion.x = this.hero.x;
+                                explosion.y = this.hero.y;
                                 this.enemyPlane1.visible = false;
-                                this.plane.reset();
+                                this.hero.reset();
 
                                 this.explosions.push(explosion);
                                 this.game.addChild(explosion);
@@ -170,10 +170,10 @@ module states {
                                 createjs.Sound.play(collider.sound);
                                 this.scoreboard.lives--;
                                 var explosion = new Explosion(this.explosionImg);
-                                explosion.x = this.plane.x;
-                                explosion.y = this.plane.y;
+                                explosion.x = this.hero.x;
+                                explosion.y = this.hero.y;
                                 this.enemyPlane2.visible = false;
-                                this.plane.reset();
+                                this.hero.reset();
 
                                 this.explosions.push(explosion);
                                 this.game.addChild(explosion);
@@ -282,9 +282,9 @@ module states {
                     //if (this.plane.visible) {
                     var rocketFire: createjs.Point = new createjs.Point(this.enemyRocket[tmpRocket].x, this.enemyRocket[tmpRocket].y);
 
-                    var objectPosition: createjs.Point = new createjs.Point(this.plane.x, this.plane.y);
+                    var objectPosition: createjs.Point = new createjs.Point(this.hero.x, this.hero.y);
                     var theDistance = this.distance(rocketFire, objectPosition);
-                    if (theDistance < ((this.enemyRocket[tmpRocket].height * 0.5) + (this.plane.height * 0.5))) {
+                    if (theDistance < ((this.enemyRocket[tmpRocket].height * 0.5) + (this.hero.height * 0.5))) {
                         if (this.enemyRocket[tmpRocket].isColliding != true) {
                             if (flagPower)
                                 flagPower = false;
@@ -293,15 +293,15 @@ module states {
                                 createjs.Sound.play(this.enemyRocket[tmpRocket].sound);
                                 this.scoreboard.lives--;
                                 var explosion = new Explosion(this.explosionImg);
-                                explosion.x = this.plane.x;
-                                explosion.y = this.plane.y;
+                                explosion.x = this.hero.x;
+                                explosion.y = this.hero.y;
                                 //this.enemyPlane2.visible = false;
                                     
 
                                 this.game.removeChild(this.enemyRocket[tmpRocket]);
 
                                 this.enemyRocket.splice(tmpRocket, 1);
-                                this.plane.reset();
+                                this.hero.reset();
                                 this.explosions.push(explosion);
                                 this.game.addChild(explosion);
                             }
@@ -327,15 +327,15 @@ module states {
 
                 this.extraScore.update();
 
-                if (flagNewPlane)
-                    this.plane.updateNewPlane();
+                if (flagNewHero)
+                    this.hero.updateNewHero();
                 else
-                    this.plane.update(controls);
+                    this.hero.update(controls);
 
                 if (controls.spacebar == true) {
                     if (this.flagRepeat == 0) {
 
-                        this.rocket.push(new objects.Rocket(this.plane.x, this.plane.y));
+                        this.rocket.push(new objects.Rocket(this.hero.x, this.hero.y));
                         this.game.addChild(this.rocket[this.rocket.length - 1]);
                         this.flagRocket = true;
 
@@ -432,17 +432,17 @@ module states {
 
                 this.extraScore.update();
 
-                if (flagNewPlane)
-                    this.plane.updateNewPlane();
+                if (flagNewHero)
+                    this.hero.updateNewHero();
                 else
-                    this.plane.update(controls);
+                    this.hero.update(controls);
             
                 //spacebar firing start
                 
                 if (controls.spacebar == true) {
                     if (this.flagRepeat == 0) {
 
-                        this.rocket.push(new objects.Rocket(this.plane.x, this.plane.y));
+                        this.rocket.push(new objects.Rocket(this.hero.x, this.hero.y));
                         this.game.addChild(this.rocket[this.rocket.length - 1]);
                         this.flagRocket = true;
 
