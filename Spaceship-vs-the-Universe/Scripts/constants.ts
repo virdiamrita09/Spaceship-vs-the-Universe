@@ -10,7 +10,7 @@
     export var GAME_PLAY_3: number = 7;
     export var GAME_PLAY_3_OVER: number = 8;
     // Game Constants
-    export var CLOUD_NUM: number = 3;
+    export var ROCKS_NUM: number = 3;
     export var LABEL_FONT = "40px Consolas";
     export var LABEL_COLOUR = "#FFFF00";
     export var PLANE_LIVES = 5;

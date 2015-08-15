@@ -2,11 +2,12 @@
 
 /// <reference path="../objects/gameobject.ts" />
 
-/// <reference path="../objects/island.ts" />
+/// <reference path="../objects/points.ts" />
 /// <reference path="../objects/ocean.ts" />
-/// <reference path="../objects/Hero.ts" />
-/// <reference path="../objects/cloud.ts" />
+/// <reference path="../objects/hero.ts" />
+/// <reference path="../objects/rocks.ts" />
 /// <reference path="../objects/scoreboard.ts" />
+/// <reference path="../objects/label.ts" />
 
 
 
@@ -19,10 +20,10 @@ module states {
         public game: createjs.Container;
         public scoreboard: objects.ScoreBoard;
         public hero: objects.Hero;
-        public island: objects.Island;
+        public points: objects.Points;
         //public bullet: objects.Bullet[] = [];
-        public extraScore: objects.extraScore;
-        public clouds: objects.Cloud[] = [];
+        public extraScore: objects.ExtraScore;
+        public rockss: objects.Rocks[] = [];
         public stage1: objects.Stage1;
         public flagBullet: boolean = false;
         public flagShield: boolean = false;
@@ -44,12 +45,12 @@ module states {
             this.game.addChild(this.stage1);
 
             //Island object
-            this.island = new objects.Island();
-            this.game.addChild(this.island);
+            this.points = new objects.Points();
+            this.game.addChild(this.points);
 
 
             //extraScore object
-            this.extraScore = new objects.extraScore();
+            this.extraScore = new objects.ExtraScore();
             this.game.addChild(this.extraScore);
 
             //Hero object
@@ -58,9 +59,9 @@ module states {
 
           
             //Cloud object
-            for (var cloud = 2; cloud >= 0; cloud--) {
-                this.clouds[cloud] = new objects.Cloud();
-                this.game.addChild(this.clouds[cloud]);
+            for (var rocks = 2; rocks >= 0; rocks--) {
+                this.rockss[rocks] = new objects.Rocks();
+                this.game.addChild(this.rockss[rocks]);
             }
             
             // Instantiate Scoreboard
@@ -84,14 +85,14 @@ module states {
         // CHECK COLLISION METHOD
         public checkCollision(collider: objects.GameObject) {
             if (this.scoreboard.active) {
-                var planePosition: createjs.Point = new createjs.Point(this.hero.x, this.hero.y);
+                var heroPosition: createjs.Point = new createjs.Point(this.hero.x, this.hero.y);
 
                 var objectPosition: createjs.Point = new createjs.Point(collider.x, collider.y);
-                var theDistance = this.distance(planePosition, objectPosition);
+                var theDistance = this.distance(heroPosition, objectPosition);
                 if (theDistance < ((this.hero.height * 0.5) + (collider.height * 0.5))) {
                     if (collider.isColliding != true) {
 
-                        if (collider.name == "cloud") {
+                        if (collider.name == "rocks") {
                             if (flagPower)
                                 flagPower = false;
                             else {
@@ -112,10 +113,10 @@ module states {
                             }
                         }
 
-                        if (collider.name == "island") {
+                        if (collider.name == "points") {
                             createjs.Sound.play(collider.sound);
                             this.scoreboard.score += 100;
-                            this.island.visible = false;
+                            this.points.visible = false;
 
                         }
 
@@ -140,12 +141,12 @@ module states {
         // CHECK COLLISION WITH ENEMY METHOD
         public checkCollisionWithEnemy(collider: objects.GameObject) {
             if (this.scoreboard.active) {
-                for (var cloud = 2; cloud >= 0; cloud--) {
-                    var cloudPosition: createjs.Point = new createjs.Point(this.clouds[cloud].x, this.clouds[cloud].y);
+                for (var rocks = 2; rocks >= 0; rocks--) {
+                    var rocksPosition: createjs.Point = new createjs.Point(this.rockss[rocks].x, this.rockss[rocks].y);
 
                     var objectPosition: createjs.Point = new createjs.Point(collider.x, collider.y);
-                    var theDistance = this.distance(cloudPosition, objectPosition);
-                    if (theDistance < ((this.clouds[cloud].height * 0.5) + (collider.height * 0.5))) {
+                    var theDistance = this.distance(rocksPosition, objectPosition);
+                    if (theDistance < ((this.rockss[rocks].height * 0.5) + (collider.height * 0.5))) {
                         if (collider.isColliding != true) {
                             createjs.Sound.play(collider.sound);
                             //Write code here for collossion of rocket with enemy.
@@ -164,7 +165,7 @@ module states {
 
             this.stage1.update();
 
-            this.island.update();
+            this.points.update();
             //alert("y" +this.plane.y);
             //this.bullet.update(this.plane.x,this.plane.y);
 
@@ -178,10 +179,10 @@ module states {
             //this.shield.x = this.plane.x;
             //this.shield.y = this.plane.y;
 
-            for (var cloud = 2; cloud >= 0; cloud--) {
-                this.clouds[cloud].update();
+            for (var rocks = 2; rocks >= 0; rocks--) {
+                this.rockss[rocks].update();
 
-                this.checkCollision(this.clouds[cloud]);
+                this.checkCollision(this.rockss[rocks]);
             }
 
             for (var i = 0; i < this.explosions.length; i++) {
@@ -195,7 +196,7 @@ module states {
             //    this.removeShield(this.shield);
             //}
 
-            this.checkCollision(this.island);
+            this.checkCollision(this.points);
             this.checkCollision(this.extraScore);
 
 

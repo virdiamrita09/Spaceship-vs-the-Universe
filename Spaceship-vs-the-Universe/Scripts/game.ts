@@ -9,9 +9,9 @@
 /// <reference path="constants.ts" />
 /// <reference path="objects/gameobject.ts" />
 /// <reference path="objects/scoreboard.ts" />
-/// <reference path="objects/Hero.ts" />
-/// <reference path="objects/island.ts" />
-/// <reference path="objects/cloud.ts" />
+/// <reference path="objects/hero.ts" />
+/// <reference path="objects/points.ts" />
+/// <reference path="objects/rocks.ts" />
 /// <reference path="objects/ocean.ts" />
 /// <reference path="objects/button.ts" />
 /// <reference path="objects/lable.ts" />
@@ -56,8 +56,8 @@ var instructions: states.Instructions;
 
 
 var manifest = [
-    { id: "cloud", src: "assets/images/asteroids.png" },
-    { id: "island", src: "assets/images/planet.png" },
+    { id: "rocks", src: "assets/images/rocks.png" },
+    { id: "points", src: "assets/images/points.png" },
     { id: "ocean", src: "assets/images/space.png" },
     { id: "rocket", src: "assets/images/rocket.png" },
     { id: "enemyRocket", src: "assets/images/enemyRocket.png" },
@@ -74,8 +74,7 @@ var manifest = [
     { id: "tryAgainButton", src: "assets/images/labelPlayAgain.png" },
     { id: "instructionsLogo", src: "assets/images/labelInstructions.png" },
     { id: "instruction", src: "assets/images/instructions.png" },
-    { id: "extraScore", src: "assets/images/extralife.png" },
-    { id: "powerPlanet", src: "assets/images/powerPlanet.png" },
+    { id: "extraScore", src: "assets/images/extralife.jpg" },
     { id: "labelStage2Start", src: "assets/images/labelStage2.png" },
     { id: "labelStage3Start", src: "assets/images/labelStage3.png" },
     { id: "engine", src: "assets/audio/star.ogg" },

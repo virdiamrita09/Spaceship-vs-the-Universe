@@ -2,10 +2,10 @@
 /// <reference path="../constants.ts" />
 /// <reference path="../objects/gameobject.ts" />
 
-/// <reference path="../objects/island.ts" />
+/// <reference path="../objects/points.ts" />
 /// <reference path="../objects/ocean.ts" />
-/// <reference path="../objects/Hero.ts" />
-/// <reference path="../objects/cloud.ts" />
+/// <reference path="../objects/hero.ts" />
+/// <reference path="../objects/rocks.ts" />
 /// <reference path="../objects/scoreboard.ts" />
 /// <reference path="../objects/lable.ts" />
 
@@ -23,11 +23,11 @@ module states {
         public enemyPlane1: objects.EnemyPlane1;
         public enemyPlane2: objects.EnemyPlane2;
         public enemyBoss: objects.EnemyBoss;
-        public island: objects.Island;
+        public points: objects.Points;
         public rocket: objects.Rocket[] = [];
         public enemyRocket: objects.EnemyRocket[] = [];
         public extraScore: objects.ExtraScore;
-        public clouds: objects.Cloud[] = [];
+        public rockss: objects.Rocks[] = [];
         public stage3: objects.Stage3;
         public flagRocket: boolean = false; //used to set delay between 2 rockets
         public shield: boolean = false;
@@ -45,13 +45,13 @@ module states {
             this.flagRepeat = 0;
             //flagNewPlane = true;
             
-            //Stage2 background
+            //Stage3 background
             this.stage3 = new objects.Stage3();
             this.game.addChild(this.stage3);
 
             //Island object
-            this.island = new objects.Island();
-            this.game.addChild(this.island);
+            this.points = new objects.Points();
+            this.game.addChild(this.points);
 
 
             //extraScore object
@@ -63,9 +63,9 @@ module states {
             this.game.addChild(this.hero);
 
             //Cloud object
-            for (var cloud = 2; cloud >= 0; cloud--) {
-                this.clouds[cloud] = new objects.Cloud();
-                this.game.addChild(this.clouds[cloud]);
+            for (var rocks = 2; rocks >= 0; rocks--) {
+                this.rockss[rocks] = new objects.Rocks();
+                this.game.addChild(this.rockss[rocks]);
             }
             
             //Enemy plane 1 object
@@ -99,15 +99,15 @@ module states {
         public checkCollision(collider: objects.GameObject) {
 
             if (this.scoreboard.active) {
-                var planePosition: createjs.Point = new createjs.Point(this.hero.x, this.hero.y);
+                var heroPosition: createjs.Point = new createjs.Point(this.hero.x, this.hero.y);
 
                 var objectPosition: createjs.Point = new createjs.Point(collider.x, collider.y);
-                var theDistance = this.distance(planePosition, objectPosition);
+                var theDistance = this.distance(heroPosition, objectPosition);
                 if (theDistance < ((this.hero.height * 0.5) + (collider.height * 0.5))) {
                     if (collider.isColliding != true) {
 
 
-                        if (collider.name == "cloud") {
+                        if (collider.name == "rocks") {
                             if (flagPower)
                                 flagPower = false;
                             else {
@@ -129,10 +129,10 @@ module states {
                         }
 
 
-                        if (collider.name == "island") {
+                        if (collider.name == "points") {
                             createjs.Sound.play(collider.sound);
                             this.scoreboard.score += 100;
-                            this.island.visible = false;
+                            this.points.visible = false;
 
                         }
 
@@ -323,7 +323,7 @@ module states {
             if (flagStage3) {
                 this.game.removeChild(this.enemyPlane1);
                 this.game.removeChild(this.enemyPlane2);
-                this.island.update();
+                this.points.update();
 
                 this.extraScore.update();
 
@@ -360,13 +360,13 @@ module states {
                     }
                 }
 
-                for (var cloud = 2; cloud >= 0; cloud--) {
-                    this.clouds[cloud].update();
-                    this.checkCollision(this.clouds[cloud]);
+                for (var rocks = 2; rocks >= 0; rocks--) {
+                    this.rockss[rocks].update();
+                    this.checkCollision(this.rockss[rocks]);
                 }
 
 
-                this.checkCollision(this.island);
+                this.checkCollision(this.points);
                 this.checkCollision(this.extraScore);
                 //show enemy boss
                 
@@ -426,7 +426,7 @@ module states {
 
                 this.stage3.update();
 
-                this.island.update();
+                this.points.update();
                 //alert("y" +this.plane.y);
                 //this.bullet.update(this.plane.x,this.plane.y);
 
@@ -494,10 +494,10 @@ module states {
                 
                 //this.plane.update(this.bullet);
 
-                for (var cloud = 2; cloud >= 0; cloud--) {
-                    this.clouds[cloud].update();
+                for (var rocks = 2; rocks >= 0; rocks--) {
+                    this.rockss[rocks].update();
 
-                    this.checkCollision(this.clouds[cloud]);
+                    this.checkCollision(this.rockss[rocks]);
                 }
 
                 this.enemyPlane1.update();
@@ -509,7 +509,7 @@ module states {
                 this.checkPlaneCollisionWithEnemyRocket();
 
 
-                this.checkCollision(this.island);
+                this.checkCollision(this.points);
                 this.checkCollision(this.extraScore);
                 this.checkCollision(this.enemyPlane1);
                 this.checkCollision(this.enemyPlane2);

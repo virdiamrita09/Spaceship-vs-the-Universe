@@ -1,66 +1,48 @@
-﻿
+﻿module objects {
+    // ISLAND CLASS
+    export class Points extends objects.GameObject {
 
-module objects {
-    // Player Class
-    export class hero extends createjs.Bitmap {
-        public width: number;
-        public height: number;
-        public tmpY: number;
-        public timer: number;
-
-
-        // constructor
+        // CONSTRUCTOR
         constructor() {
-            super(assetLoader.getResult("hero"));
-
-            this.width = this.getBounds().width;
-            this.height = this.getBounds().height;
-
-            this.regX = this.width * 0.5;
-            this.regY = this.height * 0.5;
-            createjs.Sound.play("engine", { loop: -1 });
+            super("points");
+            this.sound = "yay";
+            this._dx = 5;
 
             this.reset();
         }
 
-        // public method
-        public update(control) {
-            
-            if (constants.MENU_STATE) {
-                this.y = stage.mouseY;
-                this.x = stage.mouseX;
-            } else {
+        // PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++
+        public update() {
+            this.x -= this._dx;
 
-                if (control.down == true && this.y < 400) {
-                    this.y += 7;
-                } else if (control.up == true && this.y > 30) {
-                    this.y -= 7;
-                } else if (control.left == true && this.x > 50) {
-                    this.x -= 7;
-                } else if (control.right == true && this.x < 600) {
-                    this.x += 7;
-                }
-
-             }
+            this._checkBounds();
         }
 
+        // Reset position of island to the top
         public reset() {
-            // reset plane after colliding with enemy
             this.visible = true;
-            this.x = -100;
-            this.y = Math.floor(Math.random() * 400);
-            flagPower = true;
-            flagNewPlane = true;
-            this.updateNewPlane();
+            this.x = 1000 + this.width;
+            this.y = Math.floor(Math.random() * 430);
+            /*
+            this.y = -this.height;
+            this.x = Math.floor(Math.random() * 640);
+            */
         }
 
-        public updateNewPlane() {
-            this.x += 5;
-            if (this.x > 100) {
-                flagNewPlane = false;
+        // PRIVATE METHODS +++++++++++++++++++++++++++++++++++++++++
+        private _checkBounds() {
+            // check if island has left the bottom of the screen
+            if (this.x <= (0 - this.width - 5000)) {
+                this.reset();
             }
+
+            /*
+            if (this.y >= (480 + this.height)) {
+                this.reset();
+            }
+            */
         }
 
     }
 
-}
+}  

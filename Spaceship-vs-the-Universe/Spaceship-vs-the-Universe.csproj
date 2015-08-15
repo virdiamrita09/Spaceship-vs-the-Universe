@@ -59,10 +59,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="assets\audio\blast.mp3" />
+    <Content Include="assets\audio\Blast.mp3" />
     <Content Include="assets\audio\collision.wav" />
     <Content Include="assets\audio\powerup.wav" />
-    <Content Include="assets\images\asteroids.png" />
+    <Content Include="assets\images\rocks.png" />
     <Content Include="assets\images\enemyBoss.png" />
     <Content Include="assets\images\enemyPlane1.png" />
     <Content Include="assets\images\enemyPlane2.png" />
@@ -127,7 +127,7 @@
     <TypeScriptCompile Include="Scripts\game.ts" />
     <TypeScriptCompile Include="Scripts\keys.ts" />
     <TypeScriptCompile Include="Scripts\objects\button.ts" />
-    <TypeScriptCompile Include="Scripts\objects\cloud.ts" />
+    <TypeScriptCompile Include="Scripts\objects\rocks.ts" />
     <TypeScriptCompile Include="Scripts\objects\enemyBoss.ts" />
     <TypeScriptCompile Include="Scripts\objects\enemyPlane1.ts" />
     <TypeScriptCompile Include="Scripts\objects\enemyRocket.ts" />
@@ -135,7 +135,6 @@
     <TypeScriptCompile Include="Scripts\objects\explosion.ts" />
     <TypeScriptCompile Include="Scripts\objects\extraScore.ts" />
     <TypeScriptCompile Include="Scripts\objects\gameobject.ts" />
-    <TypeScriptCompile Include="Scripts\objects\island.ts" />
     <TypeScriptCompile Include="Scripts\objects\lable.ts" />
     <TypeScriptCompile Include="Scripts\objects\ocean.ts" />
     <TypeScriptCompile Include="Scripts\objects\hero.ts" />

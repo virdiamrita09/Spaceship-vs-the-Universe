@@ -1,12 +1,12 @@
 ﻿
 module objects {
     // island class// extra score
-    export class extraScore extends objects.GameObject {
+    export class ExtraScore extends objects.GameObject {
 
         // constructor
         constructor() {
             super("extraScore");
-            this.sound = "star";
+            this.sound = "yay";
             this._dx = 5;
 
             this.reset();

@@ -26,7 +26,7 @@
 
             this.visible = false;
             this.x = this.planeX + this.width;
-            this.y = this.planeY + 15;//Math.floor(Math.random() * 430);
+            this.y = this.planeY + 35;//Math.floor(Math.random() * 430);
 
                   }
 

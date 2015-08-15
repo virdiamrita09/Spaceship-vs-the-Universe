@@ -1,11 +1,11 @@
 ﻿
 module objects {
     // CLOUD CLASS
-    export class Cloud extends objects.GameObject {
+    export class Rocks extends objects.GameObject {
 
         // CONSTRUCTOR
         constructor() {
-            super("cloud");
+            super("rocks");
             this.sound = "blast";
             this.reset();
         }
